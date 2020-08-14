@@ -18,10 +18,11 @@ export class Renderer {
       useFlats: true
     });
     this.chords.forEach((chord: string, index: number) => {
-      if (!(index % 4))
+      if ((index % 4) === 0)
         result += '\n|'
       result += renderC(parseChord(chord)) + '\t|';
     })
+    result += '|'
 
     return result;
   }

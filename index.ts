@@ -12,7 +12,9 @@ const chords = [
   "A7alt",
   "D-11",
   "G7(b13)",
-  "CMaj7"
+  "CMaj7",
+  "A-7",
+  "G13"
 ];
 
 const rend = new Renderer(chords);
@@ -41,4 +43,49 @@ document.getElementById("down").addEventListener("click", function() {
   render();
 });
 
+var useFlats = document.getElementById("useFlats") as HTMLInputElement;
+useFlats.addEventListener("click", function() {
+  rend.useFlats = useFlats.checked;
+  render();
+});
+
+var harmonizeAccidentals = document.getElementById("harmonizeAccidentals") as HTMLInputElement;
+harmonizeAccidentals.addEventListener("click", function() {
+  rend.harmonizeAccidentals = harmonizeAccidentals.checked;
+  render();
+});
+
+var useShortNamings = document.getElementById("useShortNamings") as HTMLInputElement;
+useShortNamings.addEventListener("click", function() {
+  rend.useShortNamings = useShortNamings.checked;
+  render();
+});
+
+var none = document.getElementById("none") as HTMLInputElement;
+none.addEventListener("click", function() {
+  checkSimplifyButtons();
+});
+
+var max = document.getElementById("max") as HTMLInputElement;
+max.addEventListener("click", function() {
+  checkSimplifyButtons();
+});
+
+var core = document.getElementById("core") as HTMLInputElement;
+core.addEventListener("click", function() {
+  checkSimplifyButtons();
+});
+
+function checkSimplifyButtons(){
+  if (none.checked)
+    rend.simplify = 'none';
+  else if (max.checked)
+    rend.simplify = 'max';
+  else if (core.checked)
+    rend.simplify = 'core';
+  else
+    rend.simplify = 'none';
+
+  render();
+}
 render();

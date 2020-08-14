@@ -1,5 +1,29 @@
 <div>
   <div id="app"></div>
-  <button id="up">transpose up</button>
-  <button id="down">transpose down</button>
+  <br>
+  <fieldset>
+    <button id="up">transpose up</button>
+    <button id="down">transpose down</button>
+    <div>
+      <input type="checkbox" id="harmonizeAccidentals" name="option" value="Harmonize Accidentals" checked>
+      <label for="harmonizeAccidentals">Harmonize Accidentals</label>
+    </div>
+    <div>
+      <input type="checkbox" id="useFlats" name="option" value="Use Flats" checked>
+      <label for="useFlats">Use Flats</label>
+    </div>
+    <div>
+      <input type="checkbox" id="useShortNamings" name="option" value="useShortNamings" checked>
+      <label for="useShortNamings">useShortNamings</label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Simplify</legend>
+    <input type="radio" id="none" name="simplify" value="none" checked>
+    <label for="none">none</label><br>
+    <input type="radio" id="max" name="simplify" value="max">
+    <label for="max">max</label><br>  
+    <input type="radio" id="core" name="simplify" value="core">
+    <label for="core">core</label><br><br>
+  </fieldset>
 </div>

@@ -3,6 +3,10 @@ import { parseChord, chordRendererFactory } from 'chord-symbol';
 export class Renderer {
   chords: Array<string> = [];
   transpose: number = 0;
+  useFlats = true;
+  harmonizeAccidentals = false;
+  simplify = 'none';
+  useShortNamings = false;
 
   constructor(chords){
     this.chords = chords
@@ -11,11 +15,11 @@ export class Renderer {
   toString(): string{
     let result = '';
     const renderC = chordRendererFactory({ 
-      useShortNamings: false,
-      simplify: 'none',
+      useShortNamings: this.useShortNamings,
+      simplify: this.simplify,
       transposeValue: this.transpose,
-      harmonizeAccidentals: false,
-      useFlats: true
+      harmonizeAccidentals: this.harmonizeAccidentals,
+      useFlats: this.useFlats
     });
     this.chords.forEach((chord: string, index: number) => {
       if ((index % 4) === 0)

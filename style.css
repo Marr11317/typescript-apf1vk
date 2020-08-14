@@ -1,3 +1,7 @@
 h1, h2 {
   font-family: Lato;
 }
+table.stops td{
+    /* border: 1px dotted gray; */
+    padding-right: 1em;
+}
